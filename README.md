@@ -4,11 +4,11 @@
 
 Voice Studio is a simple browser app that turns written scripts into natural-sounding voiceovers. It runs [Chatterbox TTS](https://github.com/resemble-ai/chatterbox) (the open-source model that beats ElevenLabs in blind listening tests) entirely on your own computer:
 
-- 💸 **Free forever** — no subscription, no character limits, no credits
-- 🔒 **Private** — nothing leaves your machine
-- 🎭 **9 ready-made human voices** + clone any voice from a 10-second recording
-- ⏸️ **ElevenLabs-style break tags** — dramatic pauses baked into the audio
-- 🎬 **Made for video creators** — outputs one MP3 *and* per-shot clips for your editor
+-  **Free forever** — no subscription, no character limits, no credits
+-  **Private** — nothing leaves your machine
+-  **9 ready-made human voices** + clone any voice from a 10-second recording
+-  **ElevenLabs-style break tags** — dramatic pauses baked into the audio
+-  **Made for video creators** — outputs one MP3 *and* per-shot clips for your editor
 
 ![screenshot placeholder](docs/screenshot.png)
 
