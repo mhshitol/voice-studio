@@ -1,0 +1,24 @@
+# local environment and caches (huge - never commit)
+venv/
+hf-cache/
+pip-cache/
+tmp/
+
+# generated output
+output/
+voices/previews/
+scripts/*_vo/
+
+# personal files (not for the public repo)
+terminalcmd.txt
+voices/Deep_den.wav
+
+# local-only extras
+voices/raw/
+test_hook.py
+test_hook.wav
+make_refs.py
+make_refs2.py
+
+__pycache__/
+*.pyc

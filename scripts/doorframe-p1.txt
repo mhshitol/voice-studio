@@ -1,0 +1,15 @@
+# THE DOORFRAME - Part 1 (horror channel) - voice: Jacob or Edward
+# One line = one clip = one storyboard shot. Paste into Voice Studio Tab 2.
+[natural] My dad measured my height on the kitchen doorframe... every single birthday.
+[natural] Little pencil marks. His handwriting next to each one. Age six. Age seven.
+[natural] The last one says eighteen.
+[natural] He passed two years ago. I moved back in this spring.
+[natural] I don't touch that doorframe. I just... I like that it's there.
+[natural] This morning I'm making coffee — half asleep, spilled the sugar — and I see it.
+[dramatic] A new mark. [pause 0.3] Fresh pencil. [pause 0.4] Above mine. Way above mine.
+[dramatic] I measured it. [pause 0.3] Six foot nine.
+[horror] I live alone.
+[natural] I told myself I imagined it. All day, I told myself that.
+[dramatic] But tonight I checked again, and... the mark is higher.
+[dramatic] And there's handwriting next to it now. [pause 0.3] Dad wrote my age next to every mark. [pause 0.4] This one doesn't say an age.
+[horror] It says... [pause 0.6] "almost."
