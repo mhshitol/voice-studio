@@ -203,4 +203,4 @@ with gr.Blocks(title="Voice Studio") as demo:
     up_btn.click(add_voice, [up, up_name], [voice_dd, voice_dd2, up_status])
     gr.Markdown("Vibes: **natural** sweet spot · **horror** slow+dark · **dramatic** big reveals · **chill** relaxed · **excited** energetic")
 
-demo.launch(server_name="127.0.0.1", server_port=7860)
+demo.launch(server_name="127.0.0.1", server_port=7860, allowed_paths=[str(BASE)])
