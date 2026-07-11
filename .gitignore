@@ -6,6 +6,7 @@ tmp/
 
 # generated output
 output/
+studio.log
 voices/previews/
 scripts/*_vo/
 

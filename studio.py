@@ -6,12 +6,28 @@ ElevenLabs-style break tags, and MP3 export.
 
 All paths are relative to this file, so the project folder can live anywhere.
 """
+import functools
 import re
+import traceback
 from pathlib import Path
 
 import gradio as gr
 import numpy as np
 import soundfile as sf
+
+
+def friendly_errors(fn):
+    """Show the real error in the UI instead of a generic 'Error' toast."""
+    @functools.wraps(fn)
+    def wrapper(*args, **kwargs):
+        try:
+            return fn(*args, **kwargs)
+        except gr.Error:
+            raise
+        except Exception as e:
+            traceback.print_exc()
+            raise gr.Error(f"{type(e).__name__}: {e} (full details in studio.log)")
+    return wrapper
 
 BASE = Path(__file__).resolve().parent
 VOICES_DIR = BASE / "voices"
@@ -106,6 +122,7 @@ def render_text(text, exaggeration, cfg, voice):
     return (np.concatenate(parts) if parts else np.zeros(1, dtype=np.float32)), sr
 
 
+@friendly_errors
 def preview_voice(voice, vibe):
     PREVIEW_DIR.mkdir(exist_ok=True)
     safe = re.sub(r'[^\w-]', '_', f"{voice}_{vibe}")
@@ -117,13 +134,21 @@ def preview_voice(voice, vibe):
     return str(out)
 
 
+@friendly_errors
 def add_voice(file, name):
     if not file:
         return gr.update(), gr.update(), "Upload an audio file first."
     name = re.sub(r'[^\w-]', '_', (name or "").strip()) or "My-Voice"
     dest = VOICES_DIR / f"{name}.wav"
     import librosa
-    y, sr = librosa.load(file, sr=24000, mono=True, duration=20.0)
+    try:
+        y, sr = librosa.load(file, sr=24000, mono=True, duration=20.0)
+    except Exception:
+        traceback.print_exc()
+        raise gr.Error("Couldn't read that audio file. Use WAV or MP3 — "
+                       "phone recordings (.m4a) may need converting first.")
+    if len(y) < sr * 3:
+        raise gr.Error("That recording is under 3 seconds — use 10-20s of clean speech for good cloning.")
     sf.write(dest, y, sr)
     voices = list_voices()
     return (gr.update(choices=voices, value=name),
@@ -131,6 +156,7 @@ def add_voice(file, name):
             f"Added voice '{name}'. Select it and preview.")
 
 
+@friendly_errors
 def generate(script, voice, default_vibe, project):
     lines = [l.strip() for l in script.splitlines() if l.strip() and not l.strip().startswith("#")]
     if not lines:
