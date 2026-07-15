@@ -42,6 +42,8 @@ venv\Scripts\python.exe -m pip install --upgrade torch torchaudio --index-url ht
 Double-click **`studio.bat`** (or run it from a terminal).
 Your browser opens at `http://127.0.0.1:7860`. The first generation downloads the voice model (~3 GB) and takes a minute; after that it's fast.
 
+> **Tip — one-click desktop icon:** right-click `studio.bat` → **Send to → Desktop (create shortcut)**. From then on you can launch Voice Studio straight from your desktop.
+
 ---
 
 ## How to use
